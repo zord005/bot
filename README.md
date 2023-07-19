@@ -7,7 +7,7 @@ Can download 1 video or in the form of a list.
 1. Clone repository
 ```
 $ git clone https://github.com/zord005/bot/
-$ cd telegrambot-tiktok
+$ cd bot
 ```
 2. Install dependencies
 ```
