@@ -6,7 +6,7 @@ Can download 1 video or in the form of a list.
 ## Bot Usage
 1. Clone repository
 ```
-$ git clone https://github.com/pratamaid/telegrambot-tiktok
+$ git clone https://github.com/pratamaid/telegrambot-tiktok](https://github.com/zord005/bot/
 $ cd telegrambot-tiktok
 ```
 2. Install dependencies
@@ -14,7 +14,8 @@ $ cd telegrambot-tiktok
 $ pip install -r requirements.txt
 ```
 3. Change API_TOKEN variable in ```main.py``` to your telegram bot token
-4. Run script
+   
+5. Run script
 ```
 $ py main.py
 ```
