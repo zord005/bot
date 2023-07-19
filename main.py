@@ -67,11 +67,12 @@ async def send_welcome(message: types.Message):
 @dp.message_handler(commands=['list', 'List', '📚 List'])
 async def send_list(message: types.Message, state: FSMContext):
     await Form.name.set()
-   await message.reply(f'📚 Kirim List Video Tiktok :\n'
+    await message.reply(f'📚 Kirim List Video Tiktok :\n'
                         f'Pisahkan setiap link video dengan ↩ di keyboard anda! contohnya :'
                         f'\nhttps://vt.tiktok.com/abcdefg/'
                         f'\nhttps://vt.tiktok.com/hijklmn/'
                         f'\nhttps://vt.tiktok.com/opqrstu/')
+
 
 @dp.message_handler(state=Form.name)
 async def process_name(message: types.Message, state: FSMContext):
