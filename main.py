@@ -11,7 +11,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.types import ParseMode, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 from colorama import Fore, Back, Style
 
-API_TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX'
+API_TOKEN = '6378503750:AAGzbpntQeHiQSsKs1RKswZI3lyXKAdE6_k'
 bot = Bot(token=API_TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
@@ -57,8 +57,8 @@ async def send_welcome(message: types.Message):
     await message.reply(f'Selamat datang, {message.chat.first_name}!\n\nAnda dapat memulai dengan klik /download atau /list \n'
                         f'Maka video anda akan saya Download!\n\nSaat ini, saya mendukung '
                         f'hanya video dari TikTok!')
-    btn1 = InlineKeyboardButton('⬇️ Download', '/download')
-    btn2 = InlineKeyboardButton('📚 List', '/list')
+    btn1 = InlineKeyboardButton('⬇️ Download', callback_data='download')
+    btn2 = InlineKeyboardButton('📚 List', callback_data='list')
     markup4 = ReplyKeyboardMarkup(resize_keyboard=True).row(
         btn1, btn2
     )
@@ -67,8 +67,11 @@ async def send_welcome(message: types.Message):
 @dp.message_handler(commands=['list', 'List', '📚 List'])
 async def send_list(message: types.Message, state: FSMContext):
     await Form.name.set()
-    await message.reply(f'📚 Kirim List Video Tiktok :\n'
-                        f'Pisahkan setiap link video dengan ↩')
+   await message.reply(f'📚 Kirim List Video Tiktok :\n'
+                        f'Pisahkan setiap link video dengan ↩ di keyboard anda! contohnya :'
+                        f'\nhttps://vt.tiktok.com/abcdefg/'
+                        f'\nhttps://vt.tiktok.com/hijklmn/'
+                        f'\nhttps://vt.tiktok.com/opqrstu/')
 
 @dp.message_handler(state=Form.name)
 async def process_name(message: types.Message, state: FSMContext):
@@ -78,7 +81,7 @@ async def process_name(message: types.Message, state: FSMContext):
     counter = 0
     while counter <= len(video_list):
         video_detail = download_video(video_list[counter])
-        await message.reply_video(video_detail[0], caption=f'📹Username: <a href="https://www.tiktok.com/@{video_detail[1]}">@{video_detail[1]}</a>\n❤️Like: {video_detail[2]}\n🔗Link: <a href="{video_detail[0]}">Link</a>\nSaya senang bisa membantu! @unduhtiktokbot',parse_mode=ParseMode.HTML)
+        await message.reply_video(video_detail[0], caption=f'📹Username: <a href="https://www.tiktok.com/@{video_detail[1]}">@{video_detail[1]}</a>\n❤️Like: {video_detail[2]}\n🔗Link: <a href="{video_detail[0]}">Link</a>\nSaya senang bisa membantu! @Krig_bot_bot',parse_mode=ParseMode.HTML)
         print(Fore.GREEN + '[+] Finish Downloading '+ str(video_detail[3]))
         counter = counter + 1
     else:
