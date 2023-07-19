@@ -99,7 +99,7 @@ async def process_name(message: types.Message, state: FSMContext):
     await state.finish()
     if re.compile('https://[a-zA-Z]+.tiktok.com/').match(message.text):
         video_detail = download_video(message.text)
-        await message.reply_video(video_detail[0], caption=f'📹Username: <a href="https://www.tiktok.com/@{video_detail[1]}">@{video_detail[1]}</a>\n❤️Like: {video_detail[2]}\n🔗Link: <a href="{video_detail[0]}">Link</a>\nSaya senang bisa membantu! @unduhtiktokbot',parse_mode=ParseMode.HTML)
+        await message.reply_video(video_detail[0], caption=f'📹Username: <a href="https://www.tiktok.com/@{video_detail[1]}">@{video_detail[1]}</a>\n❤️Like: {video_detail[2]}\n🔗Link: <a href="{video_detail[0]}">Link</a>\nSaya senang bisa membantu! @tiktok_vtdownloader',parse_mode=ParseMode.HTML)
         print(Fore.GREEN + '[+] Finish Downloading '+ str(video_detail[3]))
     else:
         await message.answer('⛔️ Anda mengirim tautan yang tidak didukung oleh bot!\nKetik /help untuk bantuan')
