@@ -11,7 +11,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.types import ParseMode, ReplyKeyboardMarkup, KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton
 from colorama import Fore, Back, Style
 
-API_TOKEN = 'xxxxxxxxxxxxxxxxxxxxx'
+API_TOKEN = '6359436925:AAEfQoJ5LxcKKglEGnz2aI8-61r7sUaJK5A'
 bot = Bot(token=API_TOKEN)
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
